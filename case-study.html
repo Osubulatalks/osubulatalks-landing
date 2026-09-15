@@ -283,9 +283,9 @@
 
 <section class="hero">
   <div class="wrap">
-    <div class="hero-kicker">Case study &mdash; multi-tenant SaaS platform</div>
+    <div class="hero-kicker">Case study, multi-tenant SaaS platform</div>
     <h1>One system replaced a register, a spreadsheet, and the phone calls.</h1>
-    <p>A school fee and results management platform for Ugandan schools, built and shipped as a real commercial product &mdash; not a prototype. Here's what it does, how it's built, and one production bug that turned into a schema-wide fix.</p>
+    <p>A school fee and results management platform for Ugandan schools, built and shipped as a real commercial product, not a prototype. Here's what it does, how it's built, and one production bug that turned into a schema-wide fix.</p>
 
     <div class="stat-row">
       <div class="stat">
@@ -309,8 +309,8 @@
     <div class="section-head">
       <h2>The problem</h2>
     </div>
-    <p>Most schools in Uganda run fee collection and academic results on paper, spreadsheets, and phone calls &mdash; three systems that never agree with each other. A parent calls to ask if they've paid; the accountant checks a ledger book. A teacher wants a class average; someone reconstructs it from graded scripts. At the end of term, someone manually merges a fee balance and a report card into one document a parent can actually use.</p>
-    <p>I built a multi-tenant platform that replaces all three with one system &mdash; designed from the start to be <strong>sold to multiple schools as a product</strong>, not built for a single school's internal use.</p>
+    <p>Most schools in Uganda run fee collection and academic results on paper, spreadsheets, and phone calls, three systems that never agree with each other. A parent calls to ask if they've paid; the accountant checks a ledger book. A teacher wants a class average; someone reconstructs it from graded scripts. At the end of term, someone manually merges a fee balance and a report card into one document a parent can actually use.</p>
+    <p>I built a multi-tenant platform that replaces all three with one system, designed from the start to be <strong>sold to multiple schools as a product</strong>, not built for a single school's internal use.</p>
   </div>
 </section>
 
@@ -323,19 +323,19 @@
 
     <div class="feature-row">
       <div class="feature-title">Fee billing that bills itself</div>
-      <div class="feature-desc">A fee structure is set once per class and term. Every student in that class gets a correct, itemized balance immediately &mdash; no manual billing per child.</div>
+      <div class="feature-desc">A fee structure is set once per class and term. Every student in that class gets a correct, itemized balance immediately, no manual billing per child.</div>
     </div>
     <div class="feature-row">
       <div class="feature-title">Payments, three ways</div>
-      <div class="feature-desc">Cash or bank, recorded by an accountant in seconds. Or mobile money &mdash; MTN, Airtel &mdash; paid directly by a parent from their phone via Flutterwave, settling straight into the school's own account. The platform never holds a school's fee money; that's an architectural constraint, not a policy.</div>
+      <div class="feature-desc">Cash or bank, recorded by an accountant in seconds. Or mobile money, MTN, Airtel, paid directly by a parent from their phone via Flutterwave, settling straight into the school's own account. The platform never holds a school's fee money; that's an architectural constraint, not a policy.</div>
     </div>
     <div class="feature-row">
       <div class="feature-title">Grading that matches the real curriculum</div>
-      <div class="feature-desc">Compulsory subjects, weighted Continuous Assessment / End-of-Cycle scoring &mdash; Uganda's actual UNEB rules, not a generic percentage scale bent to fit. A composite-results feature combines a mock, a midterm, and a final into one certificate-style result with its own weighting.</div>
+      <div class="feature-desc">Compulsory subjects, weighted Continuous Assessment / End-of-Cycle scoring, Uganda's actual UNEB rules, not a generic percentage scale bent to fit. A composite-results feature combines a mock, a midterm, and a final into one certificate-style result with its own weighting.</div>
     </div>
     <div class="feature-row">
       <div class="feature-title">Built for unreliable internet</div>
-      <div class="feature-desc">Recording a payment, entering scores, adding a student &mdash; all of it keeps working offline. Everything queues on the device and syncs the moment signal returns, with nothing lost and nothing recorded twice.</div>
+      <div class="feature-desc">Recording a payment, entering scores, adding a student; all of it keeps working offline. Everything queues on the device and syncs the moment signal returns, with nothing lost and nothing recorded twice.</div>
     </div>
     <div class="feature-row">
       <div class="feature-title">Everything else a school runs on</div>
@@ -343,7 +343,7 @@
     </div>
     <div class="feature-row">
       <div class="feature-title">Isolated by design</div>
-      <div class="feature-desc">Five roles &mdash; Super Admin, School Admin, Accountant, Teacher, Parent &mdash; each enforced at the database query level, not just hidden in the UI. A teacher's own class, a parent's own child, and nothing else.</div>
+      <div class="feature-desc">Five roles, Super Admin, School Admin, Accountant, Teacher, Parent, each enforced at the database query level, not just hidden in the UI. A teacher's own class, a parent's own child, and nothing else.</div>
     </div>
 
     <div style="margin-top: 40px;">
@@ -372,9 +372,9 @@
 
     <div class="story-grid">
       <div class="prose">
-        <p>Late in the build, I added a "delete school" action for platform admins &mdash; a real, permanent, cascading delete of a tenant and every record tied to it. The first attempt to run it in production failed with a generic error.</p>
-        <p>Tracing it down turned up something bigger than the feature itself: <strong>27 relationships</strong> across the schema &mdash; between exams and classes, fee structures and terms, attendance and students &mdash; had no defined behavior for what should happen to them when something they depended on was deleted. Every model's own link back to its school had been carefully set up to cascade correctly; the connections <em>between</em> business objects underneath that had not.</p>
-        <p>That gap wasn't only a deletion problem &mdash; it would have silently blocked deleting a single class, term, or subject anywhere else in the app, the first time anyone tried. Fixing it meant deciding, relationship by relationship, whether a dependent record should be deleted with its parent or just detached &mdash; including a deliberate call to make audit-log entries <strong>survive</strong> a tenant's deletion, unlinked rather than destroyed, so accountability outlives the thing it's about.</p>
+        <p>Late in the build, I added a "delete school" action for platform admins, a real, permanent, cascading delete of a tenant and every record tied to it. The first attempt to run it in production failed with a generic error.</p>
+        <p>Tracing it down turned up something bigger than the feature itself: <strong>27 relationships</strong> across the schema, between exams and classes, fee structures and terms, attendance and students, had no defined behavior for what should happen to them when something they depended on was deleted. Every model's own link back to its school had been carefully set up to cascade correctly; the connections <em>between</em> business objects underneath that had not.</p>
+        <p>That gap wasn't only a deletion problem; it would have silently blocked deleting a single class, term, or subject anywhere else in the app, the first time anyone tried. Fixing it meant deciding, relationship by relationship, whether a dependent record should be deleted with its parent or just detached, including a deliberate call to make audit-log entries <strong>survive</strong> a tenant's deletion, unlinked rather than destroyed, so accountability outlives the thing it's about.</p>
         <p>The fix shipped as a database migration, verified against the live production database before being trusted.</p>
       </div>
 
@@ -405,7 +405,7 @@
             <line class="reveal-line" x1="130" y1="133" x2="170" y2="133" stroke="#B7965A" stroke-width="1.6"/>
           </g>
         </svg>
-        <div class="diagram-caption"><code>ExamSubject.subject &rarr; Subject</code> had no <code>onDelete</code> rule &mdash; one of 27 found the same way.</div>
+        <div class="diagram-caption"><code>ExamSubject.subject &rarr; Subject</code> had no <code>onDelete</code> rule, one of 27 found the same way.</div>
       </div>
     </div>
   </div>
@@ -416,7 +416,7 @@
     <div class="section-head">
       <h2>Real-world validation</h2>
     </div>
-    <p>This isn't a demo. The first pilot school onboarded onto the platform with its real class structure, real fee amounts, and real enrolled students &mdash; not seed data &mdash; and has been running live fee collection and results tracking on it since.</p>
+    <p>This isn't a demo. The first pilot school onboarded onto the platform with its real class structure, real fee amounts, and real enrolled students, not seed data, and has been running live fee collection and results tracking on it since.</p>
   </div>
 </section>
 
