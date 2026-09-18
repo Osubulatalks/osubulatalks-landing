@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Manual | Osubulatalks Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F1EAD9;
+    --paper-card: #E7DEC7;
+    --ink: #1C2541;
+    --ink-soft: #4B5578;
+    --rule: #C6B896;
+    --stamp: #A73B2E;
+    --gold: #A8791F;
+    --max: 920px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  h1, h2, h3{
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  :focus-visible{
+    outline: 2px solid var(--stamp);
+    outline-offset: 3px;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    border-bottom: 1px solid var(--rule);
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    z-index: 10;
+  }
+  .header-inner{
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 18px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .brand{
+    font-family: 'Newsreader', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+  .brand span{ color: var(--ink-soft); font-size: 0.85em; }
+  .nav-cta{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--ink);
+    padding: 9px 18px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .nav-cta:hover{ background: var(--ink); color: var(--paper); }
+
+  /* ---------- hero ---------- */
+  .manual-hero{
+    padding: 72px 0 56px;
+  }
+  .manual-hero .hero-kicker{
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .manual-hero h1{
+    font-size: clamp(2rem, 4.4vw, 2.9rem);
+    line-height: 1.14;
+    max-width: 18ch;
+  }
+  .manual-hero p{
+    margin-top: 22px;
+    max-width: 56ch;
+    color: var(--ink-soft);
+    font-size: 1.06rem;
+  }
+  .download-cta{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    padding: 15px 30px;
+    background: var(--stamp);
+    color: var(--paper);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.02rem;
+    border-radius: 2px;
+  }
+  .download-cta:hover{ background: #8f3226; }
+  .download-meta{
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- section shell ---------- */
+  section{ padding: 56px 0; }
+  .section-head{ max-width: 56ch; margin-bottom: 36px; }
+  .section-head h2{ font-size: clamp(1.5rem, 3vw, 1.9rem); }
+  .section-head p{ color: var(--ink-soft); margin-top: 12px; }
+
+  /* ---------- chapter list ---------- */
+  .chapter-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+    border-top: 1px solid var(--rule);
+  }
+  .chapter-row{
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .chapter-num{
+    font-family: 'Newsreader', serif;
+    font-size: 1.15rem;
+    color: var(--gold);
+  }
+  .chapter-title{ font-size: 0.98rem; }
+  .chapter-title .role{ display: block; color: var(--ink-soft); font-size: 0.82rem; margin-top: 2px; }
+
+  /* ---------- help section ---------- */
+  .help-box{
+    background: var(--paper-card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .help-box .contact-line{ line-height: 1.8; font-size: 0.98rem; }
+  .help-box .contact-line a{ text-decoration: underline; }
+
+  footer{
+    padding: 26px 0 40px;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 760px){
+    .header-inner{ flex-wrap: wrap; row-gap: 10px; }
+    .brand span{ display: none; }
+    .nav-cta{ padding: 7px 12px; font-size: 0.85rem; }
+    .chapter-grid{ grid-template-columns: 1fr; }
+    .help-box{ flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand" style="display:flex;align-items:center;gap:10px;">
+      <img src="logo.png" alt="Osubulatalks Solutions" style="height:32px;width:auto;display:block;">
+      Osubulatalks Solutions <span>Smart School Management</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;"><a class="nav-cta" href="index.html">Home</a><a class="nav-cta" href="case-study.html">Case study</a></div>
+  </div>
+</header>
+
+<section class="manual-hero">
+  <div class="wrap">
+    <div class="hero-kicker">For School Admins, Accountants, and Teachers</div>
+    <h1>Everything you need to run the system, in one manual.</h1>
+    <p>A complete, step-by-step guide covering pupils, classes, fees, transport and meal billing, payments, academic terms, exams, attendance, and more &mdash; written so anyone on your team can find their answer without waiting on us.</p>
+    <a class="download-cta" href="osubulatalks-user-manual.pdf" download>&#8681; Download the User Manual (PDF)</a>
+    <div class="download-meta">19 pages &middot; free to print or share with your staff</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What&rsquo;s inside</h2>
+      <p>Sixteen chapters, organised the way your team actually works day to day.</p>
+    </div>
+    <div class="chapter-grid">
+      <div>
+        <div class="chapter-row"><div class="chapter-num">1</div><div class="chapter-title">Getting Started<span class="role">Logging in &amp; understanding roles</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">2</div><div class="chapter-title">Managing Pupils / Students<span class="role">Adding, editing, CSV import, sorting</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">3</div><div class="chapter-title">Managing Classes<span class="role">Creating classes &amp; bulk promotion</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">4</div><div class="chapter-title">Fee Structures<span class="role">Boarding vs Day pricing</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">5</div><div class="chapter-title">Transport Zones<span class="role">Billing by distance</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">6</div><div class="chapter-title">Meal Zones<span class="role">Billing by meal option</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">7</div><div class="chapter-title">Recording Payments<span class="role">And reading fee-type badges</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">8</div><div class="chapter-title">Academic Terms<span class="role">The one-click termly summary report</span></div></div>
+      </div>
+      <div>
+        <div class="chapter-row"><div class="chapter-num">9</div><div class="chapter-title">Grading Scales<span class="role">Grades &amp; remarks on report cards</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">10</div><div class="chapter-title">Exams &amp; Results<span class="role">Scores &amp; composite results</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">11</div><div class="chapter-title">Attendance<span class="role">Daily class records</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">12</div><div class="chapter-title">Term Reports<span class="role">Per-pupil report cards</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">13</div><div class="chapter-title">Staff Management<span class="role">Adding staff &amp; roles</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">14</div><div class="chapter-title">School Settings &amp; Branding<span class="role">Logo, name &amp; contact details</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">15</div><div class="chapter-title">Frequently Asked Questions<span class="role">Common issues, solved</span></div></div>
+        <div class="chapter-row"><div class="chapter-num">16</div><div class="chapter-title">Getting Help<span class="role">Who to contact</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="help-box">
+      <div>
+        <h3 style="font-size:1.2rem;margin-bottom:6px;">Still stuck on something?</h3>
+        <p style="color:var(--ink-soft);margin:0;max-width:40ch;">If the manual doesn&rsquo;t cover it, reach out directly &mdash; we usually reply the same day.</p>
+      </div>
+      <div class="contact-line">
+        +256 789 318 836<br>
+        <a href="https://wa.me/256789318836" target="_blank" rel="noopener noreferrer">WhatsApp</a> +256 789 318 836<br>
+        Email: <a href="mailto:osubuladan@gmail.com">osubuladan@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <div>
+      <strong style="color:var(--ink);">Osubulatalks Solutions</strong><br>
+      19 Muwafu Rd, Kampala, Uganda
+    </div>
+    <div style="line-height:1.7;">Contact: +256 789 318 836<br><a href="https://wa.me/256789318836" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">WhatsApp</a> +256 789 318 836<br>Email: osubuladan@gmail.com</div>
+  </div>
+</footer>
+
+</body>
+</html>
