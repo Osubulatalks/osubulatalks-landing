@@ -4,276 +4,388 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Osubulatalks Solutions | Smart School Management</title>
+<meta name="description" content="One system for school fees, results, attendance, report cards and parent communication. Built for Ugandan schools, working today, and usable offline.">
+<meta name="theme-color" content="#F1EAD9">
+<link rel="icon" href="logo.png">
+<link rel="canonical" href="https://osubulatalks.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Osubulatalks Solutions">
+<meta property="og:title" content="Osubulatalks Solutions | Smart School Management">
+<meta property="og:description" content="One record replaces the register, the spreadsheet and the phone calls. Fees, results, attendance and parent updates in one system for Ugandan schools.">
+<meta property="og:url" content="https://osubulatalks.com/">
+<meta property="og:image" content="https://osubulatalks.com/logo.png">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper: #F1EAD9;
-    --paper-card: #E7DEC7;
-    --ink: #1C2541;
-    --ink-soft: #4B5578;
-    --rule: #C6B896;
-    --stamp: #A73B2E;
-    --gold: #A8791F;
-    --chalk: #2C4436;
-    --chalk-text: #EFE9DA;
-    --chalk-rule: rgba(239,233,218,0.28);
-    --max: 920px;
-  }
+:root{
+  --paper: #F1EAD9;
+  --paper-card: #E7DEC7;
+  --ink: #1C2541;
+  --ink-soft: #4B5578;
+  --rule: #C6B896;
+  --stamp: #A73B2E;
+  --gold: #A8791F;
+  --chalk: #2C4436;
+  --chalk-text: #EFE9DA;
+  --chalk-rule: rgba(239,233,218,0.28);
+  --max: 920px;
+}
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+  line-height: 1.6;
+  font-size: 17px;
+}
+h1, h2, h3{
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+a{ color: inherit; }
+.wrap{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+:focus-visible{
+  outline: 2px solid var(--stamp);
+  outline-offset: 3px;
+}
 
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
+/* ---------- header ---------- */
+header{
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  z-index: 10;
+}
+.header-inner{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand{
+  font-family: 'Newsreader', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand img{ height: 32px; width: auto; display: block; }
+.brand span{ color: var(--ink-soft); font-size: 0.85em; }
+.nav{ display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-cta{
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  padding: 9px 18px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.nav-cta:hover{ background: var(--ink); color: var(--paper); }
+.nav-cta-fill{ background: var(--ink); color: var(--paper); }
+.nav-cta-fill:hover{ background: #121a33; }
 
-  body{
-    margin:0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'IBM Plex Sans', sans-serif;
-    line-height: 1.6;
-    font-size: 17px;
-  }
+/* ---------- buttons ---------- */
+.btn{
+  display: inline-block;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 12px 22px;
+  border-radius: 2px;
+  border: 1px solid var(--ink);
+  background: none;
+  color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover{ background: rgba(28,37,65,0.08); }
+.btn-fill{ background: var(--stamp); border-color: var(--stamp); color: var(--paper); }
+.btn-fill:hover{ background: #8f3226; border-color: #8f3226; }
+.hero-cta{ margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
 
-  h1, h2, h3{
-    font-family: 'Newsreader', serif;
-    font-weight: 500;
-    color: var(--ink);
-    margin: 0;
-    letter-spacing: -0.01em;
-  }
+/* ---------- hero ---------- */
+.hero{
+  padding: 72px 0 88px;
+}
+.hero-inner{
+  display: flex;
+  gap: 56px;
+  align-items: center;
+}
+.hero-text{ flex: 1.1; min-width: 280px; }
+.hero-visual{
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  justify-content: center;
+  background-image: repeating-linear-gradient(
+    var(--paper) 0px, var(--paper) 27px, var(--rule) 28px
+  );
+  background-size: 100% 28px;
+  background-position: 0 8px;
+  padding: 20px 0;
+}
+.hero-text h1{
+  font-size: clamp(2rem, 4.4vw, 2.9rem);
+  line-height: 1.14;
+  max-width: 15ch;
+}
+.hero-text p{
+  margin-top: 22px;
+  max-width: 46ch;
+  color: var(--ink-soft);
+  font-size: 1.06rem;
+}
+.hero-kicker{
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
 
-  a{ color: inherit; }
+/* stamp animation */
+.stamp-group{
+  transform-origin: 300px 330px;
+  animation: stamp-in 0.7s cubic-bezier(.2,.9,.3,1.1) 0.35s both;
+}
+@keyframes stamp-in{
+  0%{ opacity: 0; transform: scale(1.9) rotate(-24deg); }
+  70%{ opacity: 1; }
+  100%{ opacity: 1; transform: scale(1) rotate(-12deg); }
+}
+@media (prefers-reduced-motion: reduce){
+  .stamp-group{ animation: none; opacity: 1; transform: rotate(-12deg); }
+}
 
-  .wrap{
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 0 28px;
-  }
+/* ---------- section shell ---------- */
+section{ padding: 68px 0; }
+.section-head{ max-width: 56ch; margin-bottom: 40px; }
+.section-head h2{ font-size: clamp(1.5rem, 3vw, 1.9rem); }
+.section-head p{ color: var(--ink-soft); margin-top: 12px; }
 
-  :focus-visible{
-    outline: 2px solid var(--stamp);
-    outline-offset: 3px;
-  }
+/* ---------- roles (chalkboard section) ---------- */
+.roles{
+  background: var(--chalk);
+  color: var(--chalk-text);
+}
+.roles .section-head h2{ color: var(--chalk-text); }
+.roles .section-head p{ color: rgba(239,233,218,0.72); }
+.role-row{
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 28px;
+  padding: 22px 0;
+  border-top: 1px solid var(--chalk-rule);
+}
+.role-row:last-child{ border-bottom: 1px solid var(--chalk-rule); }
+.role-name{
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--chalk-text);
+}
+.role-desc{ color: rgba(239,233,218,0.85); max-width: 54ch; }
 
-  /* ---------- header ---------- */
-  header{
-    border-bottom: 1px solid var(--rule);
-    position: sticky;
-    top: 0;
-    background: var(--paper);
-    z-index: 10;
-  }
-  .header-inner{
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 18px 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-  .brand{
-    font-family: 'Newsreader', serif;
-    font-size: 1.15rem;
-    font-weight: 500;
-  }
-  .brand span{ color: var(--ink-soft); font-size: 0.85em; }
-  .nav-cta{
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 0.92rem;
-    font-weight: 500;
-    text-decoration: none;
-    border: 1px solid var(--ink);
-    padding: 9px 18px;
-    border-radius: 2px;
-    white-space: nowrap;
-  }
-  .nav-cta:hover{ background: var(--ink); color: var(--paper); }
+/* ---------- feature list ---------- */
+.feature-row{
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 28px;
+  padding: 26px 0;
+  border-top: 1px solid var(--rule);
+}
+.feature-row:last-child{ border-bottom: 1px solid var(--rule); }
+.feature-title{
+  font-family: 'Newsreader', serif;
+  font-size: 1.2rem;
+}
+.feature-desc{ color: var(--ink-soft); max-width: 56ch; }
 
-  /* ---------- hero ---------- */
-  .hero{
-    padding: 72px 0 88px;
-  }
-  .hero-inner{
-    display: flex;
-    gap: 56px;
-    align-items: center;
-  }
-  .hero-text{ flex: 1.1; min-width: 280px; }
-  .hero-visual{
-    flex: 1;
-    min-width: 260px;
-    display: flex;
-    justify-content: center;
-    background-image: repeating-linear-gradient(
-      var(--paper) 0px, var(--paper) 27px, var(--rule) 28px
-    );
-    background-size: 100% 28px;
-    background-position: 0 8px;
-    padding: 20px 0;
-  }
-  .hero-text h1{
-    font-size: clamp(2rem, 4.4vw, 2.9rem);
-    line-height: 1.14;
-    max-width: 15ch;
-  }
-  .hero-text p{
-    margin-top: 22px;
-    max-width: 46ch;
-    color: var(--ink-soft);
-    font-size: 1.06rem;
-  }
-  .hero-kicker{
-    font-size: 0.95rem;
-    color: var(--ink-soft);
-    margin-bottom: 14px;
-  }
+/* ---------- getting started ---------- */
+.steps{ counter-reset: step; }
+.step{
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 24px;
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+}
+.step:last-child{ border-bottom: 1px solid var(--rule); }
+.step-num{
+  font-family: 'Newsreader', serif;
+  font-size: 1.6rem;
+  color: var(--gold);
+}
+.step-body p{ margin: 0; color: var(--ink-soft); max-width: 58ch; }
+.step-body strong{ color: var(--ink); font-weight: 600; }
 
-  /* stamp animation */
-  .stamp-group{
-    transform-origin: 300px 330px;
-    animation: stamp-in 0.7s cubic-bezier(.2,.9,.3,1.1) 0.35s both;
-  }
-  @keyframes stamp-in{
-    0%{ opacity: 0; transform: scale(1.9) rotate(-24deg); }
-    70%{ opacity: 1; }
-    100%{ opacity: 1; transform: scale(1) rotate(-12deg); }
-  }
-  @media (prefers-reduced-motion: reduce){
-    .stamp-group{ animation: none; opacity: 1; transform: rotate(-12deg); }
-  }
+/* ---------- closing ---------- */
+.closing{
+  background: var(--ink);
+  color: var(--paper);
+  text-align: left;
+}
+.closing h2{
+  color: var(--paper);
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  max-width: 18ch;
+  line-height: 1.2;
+}
+.closing p{
+  color: rgba(241,234,217,0.72);
+  max-width: 50ch;
+  margin-top: 18px;
+}
+.closing-actions{ margin-top: 30px; display: flex; flex-wrap: wrap; gap: 14px; }
+.closing-cta{
+  display: inline-block;
+  padding: 13px 26px;
+  background: var(--stamp);
+  color: var(--paper);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  border: 1px solid var(--stamp);
+  border-radius: 2px;
+  cursor: pointer;
+}
+.closing-cta:hover{ background: #8f3226; border-color: #8f3226; }
+.closing-cta-secondary{
+  display: inline-block;
+  padding: 13px 26px;
+  border: 1px solid var(--paper);
+  color: var(--paper);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 2px;
+}
+.closing-cta-secondary:hover{ background: rgba(241,234,217,0.12); }
 
-  /* ---------- section shell ---------- */
-  section{ padding: 68px 0; }
-  .section-head{ max-width: 56ch; margin-bottom: 40px; }
-  .section-head h2{ font-size: clamp(1.5rem, 3vw, 1.9rem); }
-  .section-head p{ color: var(--ink-soft); margin-top: 12px; }
+footer{
+  padding: 26px 0 40px;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+.footer-inner{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-contact{ line-height: 1.7; }
+.footer-contact a{ text-decoration: underline; }
 
-  /* ---------- roles (chalkboard section) ---------- */
-  .roles{
-    background: var(--chalk);
-    color: var(--chalk-text);
-  }
-  .roles .section-head h2{ color: var(--chalk-text); }
-  .roles .section-head p{ color: rgba(239,233,218,0.72); }
-  .role-row{
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 28px;
-    padding: 22px 0;
-    border-top: 1px solid var(--chalk-rule);
-  }
-  .role-row:last-child{ border-bottom: 1px solid var(--chalk-rule); }
-  .role-name{
-    font-family: 'Newsreader', serif;
-    font-style: italic;
-    font-size: 1.15rem;
-    color: var(--chalk-text);
-  }
-  .role-desc{ color: rgba(239,233,218,0.85); max-width: 54ch; }
+/* ---------- sign-up dialog ---------- */
+.modal{
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(28,37,65,0.55);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-card{
+  background: var(--paper);
+  max-width: 480px;
+  width: 100%;
+  padding: 32px;
+  border-radius: 4px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-close{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--ink-soft);
+  line-height: 1;
+}
+.modal-card h2{ margin-bottom: 8px; }
+.modal-lead{ color: var(--ink-soft); margin: 0 0 20px; font-size: 0.95rem; }
+.field{ margin-bottom: 14px; }
+.field label{ display: block; font-size: 0.88rem; margin-bottom: 4px; }
+.field input, .field textarea{
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: #fff;
+  color: var(--ink);
+}
+.field textarea{ resize: vertical; }
+.field-row{ display: flex; gap: 12px; }
+.field-row .field{ flex: 1; }
+.signup-message{ display: none; margin-bottom: 14px; padding: 10px 14px; border-radius: 2px; font-size: 0.9rem; }
+.signup-submit{
+  width: 100%;
+  padding: 12px;
+  background: var(--stamp);
+  color: var(--paper);
+  border: none;
+  border-radius: 2px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.signup-submit:disabled{ opacity: 0.6; cursor: default; }
 
-  /* ---------- feature list ---------- */
-  .feature-row{
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 28px;
-    padding: 26px 0;
-    border-top: 1px solid var(--rule);
-  }
-  .feature-row:last-child{ border-bottom: 1px solid var(--rule); }
-  .feature-title{
-    font-family: 'Newsreader', serif;
-    font-size: 1.2rem;
-  }
-  .feature-desc{ color: var(--ink-soft); max-width: 56ch; }
-
-  /* ---------- getting started ---------- */
-  .steps{ counter-reset: step; }
-  .step{
-    display: grid;
-    grid-template-columns: 56px 1fr;
-    gap: 24px;
-    padding: 20px 0;
-    border-top: 1px solid var(--rule);
-  }
-  .step:last-child{ border-bottom: 1px solid var(--rule); }
-  .step-num{
-    font-family: 'Newsreader', serif;
-    font-size: 1.6rem;
-    color: var(--gold);
-  }
-  .step-body p{ margin: 0; color: var(--ink-soft); max-width: 58ch; }
-  .step-body strong{ color: var(--ink); font-weight: 600; }
-
-  /* ---------- closing ---------- */
-  .closing{
-    background: var(--ink);
-    color: var(--paper);
-    text-align: left;
-  }
-  .closing h2{
-    color: var(--paper);
-    font-size: clamp(1.7rem, 4vw, 2.4rem);
-    max-width: 18ch;
-    line-height: 1.2;
-  }
-  .closing p{
-    color: rgba(241,234,217,0.72);
-    max-width: 50ch;
-    margin-top: 18px;
-  }
-  .closing-cta{
-    display: inline-block;
-    margin-top: 30px;
-    padding: 13px 26px;
-    background: var(--stamp);
-    color: var(--paper);
-    text-decoration: none;
-    font-weight: 500;
-    border-radius: 2px;
-  }
-  .closing-cta:hover{ background: #8f3226; }
-  .closing-cta-secondary{
-    display: inline-block;
-    margin-top: 30px;
-    margin-left: 14px;
-    padding: 12px 25px;
-    border: 1px solid var(--paper);
-    color: var(--paper);
-    text-decoration: none;
-    font-weight: 500;
-    border-radius: 2px;
-  }
-  .closing-cta-secondary:hover{ background: rgba(241,234,217,0.12); }
-  @media (max-width: 480px){
-    .closing-cta-secondary{ margin-left: 0; display: block; width: fit-content; }
-  }
-
-  footer{
-    padding: 26px 0 40px;
-    color: var(--ink-soft);
-    font-size: 0.88rem;
-  }
-
-  @media (max-width: 760px){
-    .hero-inner{ flex-direction: column-reverse; }
-    .role-row, .feature-row{ grid-template-columns: 1fr; gap: 8px; }
-    .step{ grid-template-columns: 40px 1fr; }
-    .header-inner{ flex-wrap: wrap; row-gap: 10px; }
-    .brand span{ display: none; }
-    .nav-cta{ padding: 7px 12px; font-size: 0.85rem; }
-  }
+@media (max-width: 760px){
+  .hero-inner{ flex-direction: column-reverse; }
+  .role-row, .feature-row{ grid-template-columns: 1fr; gap: 8px; }
+  .step{ grid-template-columns: 40px 1fr; }
+  .header-inner{ flex-wrap: wrap; row-gap: 10px; }
+  .brand span{ display: none; }
+  .nav-cta{ padding: 7px 12px; font-size: 0.85rem; }
+  .field-row{ flex-direction: column; gap: 0; }
+}
+@media (max-width: 480px){
+  .closing-actions{ flex-direction: column; align-items: flex-start; }
+}
 </style>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <div class="brand" style="display:flex;align-items:center;gap:10px;">
-      <img src="logo.png" alt="Osubulatalks Solutions" style="height:32px;width:auto;display:block;">
-      Osubulatalks Solutions <span>Smart School Management</span>
+    <div class="brand">
+      <img src="logo.png" alt="Osubulatalks Solutions">
+      <div>Osubulatalks Solutions <span>Smart School Management</span></div>
     </div>
-    <div style="display:flex;align-items:center;gap:12px;"><a class="nav-cta" href="case-study.html">Case study</a><a class="nav-cta" href="manual.html">User manual</a><a class="nav-cta" href="#steps">See setup steps</a></div>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-cta" href="case-study.html">Case study</a>
+      <a class="nav-cta" href="manual.html">User manual</a>
+      <a class="nav-cta nav-cta-fill" href="https://app.osubulatalks.com">Sign in</a>
+    </nav>
   </div>
 </header>
 
@@ -284,6 +396,10 @@
       <h1>One record replaces the register, the spreadsheet and the phone calls.</h1>
       <p>Every family's balance and every student's results, kept current in one shared system.</p>
       <p>One login per person, and each person sees only what their job needs.</p>
+      <div class="hero-cta">
+        <button type="button" class="btn btn-fill" data-open-signup>Sign up your school</button>
+        <a class="btn" href="https://wa.me/256789318836?text=Hello%2C%20I%27d%20like%20to%20know%20more%20about%20your%20school%20management%20system." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+      </div>
     </div>
     <div class="hero-visual">
       <svg viewBox="0 0 400 520" width="280" role="img" aria-label="Mock report card showing a paid fee balance and exam grades, stamped PAID">
@@ -292,10 +408,8 @@
           <text x="55" y="62" font-family="Newsreader, serif" font-size="20" fill="var(--ink)">Nakawa Primary School</text>
           <text x="55" y="86" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="var(--ink-soft)">Term 2 Report Card, 2026</text>
           <line x1="55" y1="102" x2="345" y2="102" stroke="var(--rule)" stroke-width="1.5"/>
-
           <text x="55" y="132" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="var(--ink-soft)">Student</text>
           <text x="150" y="132" font-family="IBM Plex Sans, sans-serif" font-size="13" fill="var(--ink)">Grace N., P.6</text>
-
           <text x="55" y="170" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="var(--ink-soft)">Tuition</text>
           <text x="345" y="170" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="var(--ink)">UGX 450,000</text>
           <text x="55" y="194" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="var(--ink-soft)">Transport</text>
@@ -303,9 +417,7 @@
           <line x1="55" y1="208" x2="345" y2="208" stroke="var(--rule)" stroke-width="1"/>
           <text x="55" y="232" font-family="IBM Plex Sans, sans-serif" font-size="13.5" font-weight="600" fill="var(--ink)">Balance</text>
           <text x="345" y="232" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="13.5" font-weight="600" fill="var(--ink)">UGX 0</text>
-
           <line x1="55" y1="256" x2="345" y2="256" stroke="var(--rule)" stroke-width="1.5"/>
-
           <text x="55" y="288" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="var(--ink-soft)">Mathematics</text>
           <text x="345" y="288" text-anchor="end" font-family="Newsreader, serif" font-size="14" fill="var(--ink)">A</text>
           <text x="55" y="312" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="var(--ink-soft)">English</text>
@@ -314,15 +426,13 @@
           <text x="345" y="336" text-anchor="end" font-family="Newsreader, serif" font-size="14" fill="var(--ink)">A-</text>
           <text x="55" y="360" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="var(--ink-soft)">Class rank</text>
           <text x="345" y="360" text-anchor="end" font-family="IBM Plex Sans, sans-serif" font-size="12.5" fill="var(--ink)">3 of 41</text>
-
           <line x1="55" y1="382" x2="345" y2="382" stroke="var(--rule)" stroke-width="1"/>
-          <text x="55" y="410" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="var(--ink-soft)">Sent to parent by SMS and mobile app</text>
+          <text x="55" y="410" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="var(--ink-soft)">Parents download it from their own login</text>
         </g>
-
         <g class="stamp-group">
           <circle cx="300" cy="230" r="52" fill="none" stroke="var(--stamp)" stroke-width="3" stroke-dasharray="4 3"/>
           <text x="300" y="225" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-weight="600" font-size="20" letter-spacing="2" fill="var(--stamp)">PAID</text>
-          <text x="300" y="243" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="9" letter-spacing="1.5" fill="var(--stamp)">MOBILE MONEY</text>
+          <text x="300" y="243" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="9" letter-spacing="1.5" fill="var(--stamp)">MTN MOBILE MONEY</text>
         </g>
       </svg>
     </div>
@@ -332,13 +442,12 @@
 <section class="roles">
   <div class="wrap">
     <div class="section-head">
-      <h2>Four roles, each with its own ledger</h2>
+      <h2>Every role gets its own view</h2>
       <p>Everyone signs into the same system, but nobody sees more than their job requires.</p>
     </div>
-
     <div class="role-row">
       <div class="role-name">Admin</div>
-      <div class="role-desc">Full control. Sets up classes, terms, fee amounts, and the grading scale. Creates every staff login and manages the school's mobile-money settlement account.</div>
+      <div class="role-desc">Full control. Sets up classes, terms, fee amounts, and the grading scale. Creates every staff login, publishes news and circulars to parents, and manages the school's mobile-money settlement account.</div>
     </div>
     <div class="role-row">
       <div class="role-name">Accountant</div>
@@ -346,11 +455,23 @@
     </div>
     <div class="role-row">
       <div class="role-name">Teacher</div>
-      <div class="role-desc">Enters exam scores for their own class, and sees fee status only where it's relevant, and nothing about other classes or the school's finances.</div>
+      <div class="role-desc">Enters exam scores and marks attendance for the classes assigned to them. Has no access to payments, fee structures or the school's finances, and cannot see other classes.</div>
     </div>
     <div class="role-row">
       <div class="role-name">Parent</div>
-      <div class="role-desc">Sees their child's fee balance and results, downloads the report card, and pays outstanding fees by mobile money from their own phone.</div>
+      <div class="role-desc">One login covers every child. Sees each child's fee balance and results, downloads the term report, pays outstanding fees by MTN mobile money from their own phone, and reads the school's news and circulars.</div>
+    </div>
+    <div class="role-row">
+      <div class="role-name">Principal and Deputy Principal</div>
+      <div class="role-desc">Run the school day to day: students, classes, exams, term reports and the year-end transition, and publish news and circulars. Fees and payments stay out of their view.</div>
+    </div>
+    <div class="role-row">
+      <div class="role-name">Director of Studies</div>
+      <div class="role-desc">Oversees academics: exams, scores, subjects, grading scales and attendance. No access to the school's finances.</div>
+    </div>
+    <div class="role-row">
+      <div class="role-name">Director</div>
+      <div class="role-desc">View only. Sees how the school is performing, including finances and the activity history, and cannot edit anything.</div>
     </div>
   </div>
 </section>
@@ -379,12 +500,24 @@
       <div class="feature-desc">Set tuition and optional items like transport or meals once, for a class and a term. Every student in that class gets a correct balance immediately, no manual bill per child.</div>
     </div>
     <div class="feature-row">
-      <div class="feature-title">Payments, cash, bank, or mobile money</div>
-      <div class="feature-desc">An accountant records a cash or bank payment in seconds and the balance updates instantly. Parents can also pay by MTN or Airtel mobile money straight from their phone, no accountant involved.</div>
+      <div class="feature-title">Transport and meal fees by zone</div>
+      <div class="feature-desc">Set priced zones once. Each student is billed the rate for their own zone, and a fee can charge boarding and day students different amounts for the same term.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-title">Payments, cash, bank, or MTN mobile money</div>
+      <div class="feature-desc">An accountant records a cash or bank payment in seconds and the balance updates instantly. Parents can also pay by MTN mobile money straight from their phone, no accountant involved.</div>
     </div>
     <div class="feature-row">
       <div class="feature-title">Fee reminders by SMS</div>
       <div class="feature-desc">Send one family a reminder, or every overdue family across a class or the whole school, in a single action. Each message carries that child's own name and balance, never a generic broadcast.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-title">News, circulars, and announcements</div>
+      <div class="feature-desc">Publish newsletters, circulars and activity updates with photos and attachments. Aim a post at all parents, chosen classes, or Boarding or Day, schedule it for later, and set it to expire. Parents read it under School Updates with an unread badge, and the school sees how many have read it.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-title">One parent, one record</div>
+      <div class="feature-desc">Add a second child for a parent already on file and the system offers to link them to the existing parent, so one parent has one record and one login for every child. Nothing is merged until a person confirms it.</div>
     </div>
     <div class="feature-row">
       <div class="feature-title">Daily attendance, class by class</div>
@@ -403,16 +536,40 @@
       <div class="feature-desc">Combine a mock, a midterm, and a final into a single composite result with its own weighting, the way a real end-of-cycle certificate is built, not just an average of scores.</div>
     </div>
     <div class="feature-row">
+      <div class="feature-title">Continuous assessment, topic by topic</div>
+      <div class="feature-desc">Record Activity of Integration scores for each topic, then print continuous-assessment and topic-score reports for any student.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-title">Nursery reports without percentages</div>
+      <div class="feature-desc">Nursery classes rate each learning area instead of scoring it, and the school prints a terminal report with icons that a parent can read at a glance.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-title">Promotion and year-end</div>
+      <div class="feature-desc">Move a whole class up in one action, or run the year-end transition for the school. Every promoted student can be moved back individually if a mistake is found.</div>
+    </div>
+    <div class="feature-row">
       <div class="feature-title">Student ID cards, printed on demand</div>
       <div class="feature-desc">Upload a photo once, and print a ready-to-laminate ID card whenever the school needs one. No design software, no third-party printer.</div>
     </div>
     <div class="feature-row">
+      <div class="feature-title">Who did what, and when</div>
+      <div class="feature-desc">Every important change is recorded with the person, the action and the time, and no one can edit or delete an entry. Sign-in history shows failed attempts. Leadership is alerted to critical changes, such as staff accounts, fee structures and deleted students, each to the roles allowed to see them.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-title">A termly summary for the owner</div>
+      <div class="feature-desc">One click produces a Word document for any current or past term: enrolment, collections and outstanding balances.</div>
+    </div>
+    <div class="feature-row">
       <div class="feature-title">Works even when the internet doesn't</div>
-      <div class="feature-desc">Recording a payment, entering scores, adding a student; all of it keeps working with no connection at all. Everything saves on the device and syncs the moment signal returns. Nothing lost, nothing recorded twice.</div>
+      <div class="feature-desc">Recording a payment, entering scores, marking attendance, adding a student; all of it keeps working with no connection at all. Everything saves on the device and syncs the moment signal returns. Nothing lost, nothing recorded twice.</div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-title">Security that fits a school</div>
+      <div class="feature-desc">A staff password reset needs an email verification code. Idle sessions sign out automatically, and an account can be deactivated when someone leaves.</div>
     </div>
     <div class="feature-row">
       <div class="feature-title">Built for one school, or many</div>
-      <div class="feature-desc">Every school's data stays completely separate and private. A school never sees, and can never reach, another school's students, fees, or results.</div>
+      <div class="feature-desc">Every school's data is kept completely separate and private. A school sees only its own students, fees and results, and the separation is checked before every release.</div>
     </div>
     <div class="feature-row">
       <div class="feature-title">Installable like an app</div>
@@ -427,7 +584,6 @@
       <h2>Set up in six steps</h2>
       <p>A new school goes from nothing to a working system in one guided sequence.</p>
     </div>
-
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
@@ -461,106 +617,140 @@
   <div class="wrap">
     <h2>Stop chasing balances on paper.</h2>
     <p>Put every fee and every grade in one place your whole staff can trust, and that keeps working when the internet doesn't.</p>
-    <a class="closing-cta" href="#steps">Walk through setup</a>
-    <button type="button" class="closing-cta-secondary" style="font-family:inherit;font-size:inherit;background:none;cursor:pointer;" onclick="document.getElementById('signupModal').style.display='flex'">Contact us to sign up your school</button>
+    <div class="closing-actions">
+      <button type="button" class="closing-cta" data-open-signup>Sign up your school</button>
+      <a class="closing-cta-secondary" href="https://wa.me/256789318836?text=Hello%2C%20I%27d%20like%20to%20know%20more%20about%20your%20school%20management%20system." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+  <div class="wrap footer-inner">
     <div>
       <strong style="color:var(--ink);">Osubulatalks Solutions</strong><br>
-      19 Muwafu Rd, Kampala, Uganda
+      19 Muwafu Rd, Kampala, Uganda<br>
+      <a href="https://app.osubulatalks.com" style="text-decoration:underline;">Sign in to the school system</a>
     </div>
-    <div style="line-height:1.7;">Contact: +256 789 318 836<br><a href="https://wa.me/256789318836" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">WhatsApp</a> +256 789 318 836<br>Email: osubuladan@gmail.com</div>
+    <div class="footer-contact">
+      Call: <a href="tel:+256789318836">+256 789 318 836</a><br>
+      <a href="https://wa.me/256789318836" target="_blank" rel="noopener noreferrer">WhatsApp</a> +256 789 318 836<br>
+      Email: <a href="mailto:osubuladan@gmail.com">osubuladan@gmail.com</a>
+    </div>
   </div>
 </footer>
 
-<div id="signupModal" style="display:none;position:fixed;inset:0;background:rgba(28,37,65,0.55);z-index:100;align-items:center;justify-content:center;padding:20px;">
-  <div style="background:var(--paper);max-width:480px;width:100%;padding:32px;border-radius:4px;position:relative;max-height:90vh;overflow-y:auto;">
-    <button type="button" onclick="document.getElementById('signupModal').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--ink-soft);line-height:1;">&times;</button>
-    <h2 style="margin-bottom:8px;">Sign up your school</h2>
-    <p style="color:var(--ink-soft);margin-bottom:20px;font-size:0.95rem;">Tell us a bit about your school and we will reach out to get you set up.</p>
-
+<div id="signupModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="signupTitle">
+  <div class="modal-card">
+    <button type="button" class="modal-close" data-close-signup aria-label="Close">&times;</button>
+    <h2 id="signupTitle">Sign up your school</h2>
+    <p class="modal-lead">Tell us a bit about your school and we will reach out to get you set up.</p>
     <form id="signupForm">
-      <div style="margin-bottom:14px;">
-        <label style="display:block;font-size:0.88rem;margin-bottom:4px;">School name *</label>
-        <input type="text" name="schoolName" required style="width:100%;padding:9px 12px;border:1px solid var(--rule);border-radius:2px;font-family:inherit;font-size:0.95rem;">
+      <div class="field">
+        <label for="su-school">School name *</label>
+        <input id="su-school" type="text" name="schoolName" required>
       </div>
-      <div style="margin-bottom:14px;">
-        <label style="display:block;font-size:0.88rem;margin-bottom:4px;">Contact person *</label>
-        <input type="text" name="contactPerson" required style="width:100%;padding:9px 12px;border:1px solid var(--rule);border-radius:2px;font-family:inherit;font-size:0.95rem;">
+      <div class="field">
+        <label for="su-contact">Contact person *</label>
+        <input id="su-contact" type="text" name="contactPerson" required>
       </div>
-      <div style="display:flex;gap:12px;margin-bottom:14px;">
-        <div style="flex:1;">
-          <label style="display:block;font-size:0.88rem;margin-bottom:4px;">Phone</label>
-          <input type="tel" name="phone" style="width:100%;padding:9px 12px;border:1px solid var(--rule);border-radius:2px;font-family:inherit;font-size:0.95rem;">
+      <div class="field-row">
+        <div class="field">
+          <label for="su-phone">Phone</label>
+          <input id="su-phone" type="tel" name="phone">
         </div>
-        <div style="flex:1;">
-          <label style="display:block;font-size:0.88rem;margin-bottom:4px;">Number of students</label>
-          <input type="text" name="studentCount" style="width:100%;padding:9px 12px;border:1px solid var(--rule);border-radius:2px;font-family:inherit;font-size:0.95rem;">
+        <div class="field">
+          <label for="su-count">Number of students</label>
+          <input id="su-count" type="text" name="studentCount">
         </div>
       </div>
-      <div style="margin-bottom:14px;">
-        <label style="display:block;font-size:0.88rem;margin-bottom:4px;">Email *</label>
-        <input type="email" name="email" required style="width:100%;padding:9px 12px;border:1px solid var(--rule);border-radius:2px;font-family:inherit;font-size:0.95rem;">
+      <div class="field">
+        <label for="su-email">Email *</label>
+        <input id="su-email" type="email" name="email" required>
       </div>
-      <div style="margin-bottom:18px;">
-        <label style="display:block;font-size:0.88rem;margin-bottom:4px;">Message</label>
-        <textarea name="message" rows="3" style="width:100%;padding:9px 12px;border:1px solid var(--rule);border-radius:2px;font-family:inherit;font-size:0.95rem;resize:vertical;"></textarea>
+      <div class="field">
+        <label for="su-message">Message</label>
+        <textarea id="su-message" name="message" rows="3"></textarea>
       </div>
-
-      <div id="signupMessage" style="display:none;margin-bottom:14px;padding:10px 14px;border-radius:2px;font-size:0.9rem;"></div>
-
-      <button type="submit" id="signupSubmit" style="width:100%;padding:12px;background:var(--stamp);color:var(--paper);border:none;border-radius:2px;font-family:inherit;font-size:0.95rem;font-weight:500;cursor:pointer;">Send</button>
+      <div id="signupMessage" class="signup-message" role="status" aria-live="polite"></div>
+      <button type="submit" id="signupSubmit" class="signup-submit">Send</button>
     </form>
   </div>
 </div>
 
 <script>
-  document.getElementById("signupForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
-    var form = e.target;
-    var btn = document.getElementById("signupSubmit");
-    var msgBox = document.getElementById("signupMessage");
-    var data = Object.fromEntries(new FormData(form).entries());
+(function () {
+  var modal = document.getElementById("signupModal");
+  var lastFocus = null;
 
-    btn.disabled = true;
-    btn.textContent = "Sending...";
-    msgBox.style.display = "none";
+  function openSignup() {
+    lastFocus = document.activeElement;
+    modal.style.display = "flex";
+    var first = modal.querySelector("input");
+    if (first) first.focus();
+  }
+  function closeSignup() {
+    modal.style.display = "none";
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
 
-    try {
-      var res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      var body = await res.json();
+  Array.prototype.forEach.call(document.querySelectorAll("[data-open-signup]"), function (el) {
+    el.addEventListener("click", openSignup);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-close-signup]"), function (el) {
+    el.addEventListener("click", closeSignup);
+  });
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) closeSignup();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.style.display === "flex") closeSignup();
+  });
+})();
 
-      if (res.ok) {
-        msgBox.style.display = "block";
-        msgBox.style.background = "#e3f0e8";
-        msgBox.style.color = "#2C4436";
-        msgBox.textContent = "Thanks! We will be in touch shortly.";
-        form.reset();
-        btn.textContent = "Send";
-      } else {
-        msgBox.style.display = "block";
-        msgBox.style.background = "#f7e2df";
-        msgBox.style.color = "#A73B2E";
-        msgBox.textContent = body.error || "Something went wrong. Try again.";
-        btn.disabled = false;
-        btn.textContent = "Send";
-      }
-    } catch (err) {
+document.getElementById("signupForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  var form = e.target;
+  var btn = document.getElementById("signupSubmit");
+  var msgBox = document.getElementById("signupMessage");
+  var data = Object.fromEntries(new FormData(form).entries());
+
+  btn.disabled = true;
+  btn.textContent = "Sending...";
+  msgBox.style.display = "none";
+
+  try {
+    var res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    var body = await res.json();
+    if (res.ok) {
+      msgBox.style.display = "block";
+      msgBox.style.background = "#e3f0e8";
+      msgBox.style.color = "#2C4436";
+      msgBox.textContent = "Thanks! We will be in touch shortly.";
+      form.reset();
+      btn.textContent = "Send";
+      btn.disabled = false;
+    } else {
       msgBox.style.display = "block";
       msgBox.style.background = "#f7e2df";
       msgBox.style.color = "#A73B2E";
-      msgBox.textContent = "Could not reach the server. Check your connection and try again.";
+      msgBox.textContent = body.error || "Something went wrong. Try again.";
       btn.disabled = false;
       btn.textContent = "Send";
     }
-  });
+  } catch (err) {
+    msgBox.style.display = "block";
+    msgBox.style.background = "#f7e2df";
+    msgBox.style.color = "#A73B2E";
+    msgBox.textContent = "Could not reach the server. Check your connection and try again.";
+    btn.disabled = false;
+    btn.textContent = "Send";
+  }
+});
 </script>
+
 </body>
 </html>
