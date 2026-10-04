@@ -372,6 +372,7 @@ footer{
   .closing-actions{ flex-direction: column; align-items: flex-start; }
 }
 </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -671,6 +672,7 @@ footer{
         <label for="su-message">Message</label>
         <textarea id="su-message" name="message" rows="3"></textarea>
       </div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAFNSqmsm0h6FGABO" style="margin-bottom:14px;"></div>
       <div id="signupMessage" class="signup-message" role="status" aria-live="polite"></div>
       <button type="submit" id="signupSubmit" class="signup-submit">Send</button>
     </form>
@@ -725,6 +727,7 @@ document.getElementById("signupForm").addEventListener("submit", async function 
       body: JSON.stringify(data),
     });
     var body = await res.json();
+    if (window.turnstile) window.turnstile.reset();
     if (res.ok) {
       msgBox.style.display = "block";
       msgBox.style.background = "#e3f0e8";
@@ -746,6 +749,7 @@ document.getElementById("signupForm").addEventListener("submit", async function 
     msgBox.style.background = "#f7e2df";
     msgBox.style.color = "#A73B2E";
     msgBox.textContent = "Could not reach the server. Check your connection and try again.";
+    if (window.turnstile) window.turnstile.reset();
     btn.disabled = false;
     btn.textContent = "Send";
   }
