@@ -364,10 +364,10 @@ footer{
   .hero-inner{ flex-direction: column-reverse; }
   .role-row, .feature-row{ grid-template-columns: 1fr; gap: 8px; }
   .step{ grid-template-columns: 40px 1fr; }
-  .header-inner{ flex-wrap: wrap; row-gap: 10px; }
-  .brand span{ display: none; }
-  .nav{ flex-wrap: wrap; }
-  .nav-cta{ padding: 7px 12px; font-size: 0.85rem; }
+  .header-inner{ flex-direction: column; align-items: stretch; gap: 14px; }
+  .brand span{ display: block; font-size: 0.8em; }
+  .nav{ display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; width: 100%; }
+  .nav-cta{ padding: 13px 10px; font-size: 1rem; text-align: center; }
   .field-row{ flex-direction: column; gap: 0; }
 }
 @media (max-width: 480px){
