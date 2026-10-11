@@ -86,8 +86,9 @@ header{
   gap: 10px;
 }
 .brand img{ height: 32px; width: auto; display: block; }
-.brand span{ color: var(--ink-soft); font-size: 0.85em; }
-.nav{ display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+.brand span{ color: var(--ink-soft); font-size: 0.85em; display: block; line-height: 1.2; }
+.brand > div{ line-height: 1.25; }
+.nav{ display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; justify-content: flex-end; }
 .nav-cta{
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.92rem;
@@ -365,6 +366,7 @@ footer{
   .step{ grid-template-columns: 40px 1fr; }
   .header-inner{ flex-wrap: wrap; row-gap: 10px; }
   .brand span{ display: none; }
+  .nav{ flex-wrap: wrap; }
   .nav-cta{ padding: 7px 12px; font-size: 0.85rem; }
   .field-row{ flex-direction: column; gap: 0; }
 }
