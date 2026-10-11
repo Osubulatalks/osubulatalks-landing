@@ -267,6 +267,10 @@
     }
     @keyframes draw{ to{ stroke-dashoffset: 0; } }
   }
+  @media (max-width: 760px){
+    .header-inner{ flex-direction: column; align-items: stretch; gap: 14px; }
+    .nav-cta{ display: block; text-align: center; padding: 13px 10px; font-size: 1rem; }
+  }
 </style>
 </head>
 <body>
@@ -275,7 +279,7 @@
   <div class="header-inner">
     <a class="brand" href="index.html" style="display:flex;align-items:center;gap:10px;">
       <img src="logo.png" alt="Osubula Talks Solutions" style="height:32px;width:auto;display:block;">
-      Salt <span>Builder, Osubula Talks Solutions</span>
+      <div style="line-height:1.25;">Salt<br><span>Builder, Osubula Talks Solutions</span></div>
     </a>
     <a class="nav-cta" href="https://app.osubulatalks.com" target="_blank" rel="noopener noreferrer">View the live product</a>
   </div>
