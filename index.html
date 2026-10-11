@@ -371,6 +371,19 @@ footer{
 @media (max-width: 480px){
   .closing-actions{ flex-direction: column; align-items: flex-start; }
 }
+
+/* ---------- products ---------- */
+.products{ border-top: 1px solid var(--rule); }
+.product-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.product-card{
+  display: flex; flex-direction: column; align-items: flex-start;
+  background: var(--paper-card); border: 1px solid var(--rule);
+  border-radius: 2px; padding: 28px;
+}
+.product-tag{ font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
+.product-card h3{ font-size: 1.35rem; margin-bottom: 10px; }
+.product-card p{ margin: 0 0 22px; color: var(--ink-soft); flex: 1; }
+@media (max-width: 760px){ .product-grid{ grid-template-columns: 1fr; } }
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
@@ -383,6 +396,7 @@ footer{
       <div>Osubulatalks Solutions <span>Smart School Management</span></div>
     </div>
     <nav class="nav" aria-label="Main">
+      <a class="nav-cta" href="#products">Products</a>
       <a class="nav-cta" href="case-study.html">Case study</a>
       <a class="nav-cta" href="manual.html">User manual</a>
       <a class="nav-cta nav-cta-fill" href="https://app.osubulatalks.com">Sign in</a>
@@ -609,6 +623,29 @@ footer{
       <div class="step">
         <div class="step-num">6</div>
         <div class="step-body"><p>The school links its own mobile-money settlement account, so parent payments arrive directly. <strong>The platform never holds a school's fee money.</strong></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="products" class="products">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Products</h2>
+      <p>Software built in Kampala for businesses that run on Ugandan realities: mobile money, patchy internet, and real daily operations.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-tag">Schools</div>
+        <h3>Smart School Management</h3>
+        <p>School fees, results, attendance, report cards and parent communication in one system. Works offline and takes MTN mobile money.</p>
+        <a class="btn btn-fill" href="#steps">See how it works</a>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">Bars &amp; restaurants</div>
+        <h3>Bar and Restaurant Management System</h3>
+        <p>Run your bar and restaurant from one screen: orders, tables, stock, online ordering and daily sales.</p>
+        <a class="btn btn-fill" href="bar-restaurant.html">View product</a>
       </div>
     </div>
   </div>
